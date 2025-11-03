@@ -15,8 +15,21 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   administrator_login = "adminuser"
   administrator_password = "SuperSecret123!"
   sku_name            = "B_Standard_B1ms"
-  storage_size_gb     = 5         # corrected
-  backup_retention_days = 7
-  auto_grow_enabled   = true
-  publicly_accessible = true
+
+  storage {
+    storage_size_gb = 5
+    auto_grow_enabled = true
+  }
+
+  high_availability {
+    mode = "Disabled"   # optional, for zone redundant you can use "ZoneRedundant"
+  }
+
+  network {
+    public_network_access_enabled = true
+  }
+
+  backup {
+    backup_retention_days = 7
+  }
 }
