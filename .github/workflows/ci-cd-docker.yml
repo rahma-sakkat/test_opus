@@ -68,7 +68,7 @@ jobs:
 
  
       - name: Terraform Init & Apply
-        working-directory: infra/terraform
+        working-directory: terraform
         run: |
           terraform init
           terraform apply -auto-approve
