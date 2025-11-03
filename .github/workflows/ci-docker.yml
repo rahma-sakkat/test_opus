@@ -22,21 +22,21 @@ jobs:
 
       # 3️⃣ Lint Backend
       - name: Lint Backend
-        working-directory: express-backend
+        working-directory: node-js-server
         run: |
           npm install
           npm run lint || echo "Lint issues found"
 
       # 4️⃣ Lint Frontend
       - name: Lint Frontend
-        working-directory: angular-frontend
+        working-directory: angular-12-client
         run: |
           npm install
           npm run lint || echo "Lint issues found"
 
       # 5️⃣ Build Frontend
       - name: Build Angular Frontend
-        working-directory: angular-frontend
+        working-directory: angular-12-client
         run: npm run build -- --prod
 
       # 6️⃣ Log in to Docker Hub
