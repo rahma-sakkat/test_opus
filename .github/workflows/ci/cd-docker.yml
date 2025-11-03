@@ -69,13 +69,14 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.11.2  
+          terraform_version: 1.7.6
 
       - name: Terraform Init & Apply
         working-directory: terraform
         run: |
           terraform init
           terraform apply -auto-approve
+
 
     
       - name: Deploy Backend to ACI
