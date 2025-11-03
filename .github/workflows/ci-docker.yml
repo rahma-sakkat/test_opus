@@ -48,12 +48,12 @@ jobs:
 
       # 7️⃣ Build Backend Docker Image
       - name: Build Backend Docker Image
-        working-directory: express-backend
+        working-directory: node-js-server
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:latest .
 
       # 8️⃣ Build Frontend Docker Image
       - name: Build Frontend Docker Image
-        working-directory: angular-frontend
+        working-directory: angular-12-client
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest .
 
       # 9️⃣ Push Backend Docker Image
