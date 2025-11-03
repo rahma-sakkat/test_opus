@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  node-backend:
+    build: ./node-js-server
+    container_name: node-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=
+    networks:
+      - app-network
+
+  angular-frontend:
+    build: ./angular-12-client
+    container_name: angular-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - node-backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
