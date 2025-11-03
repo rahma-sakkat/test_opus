@@ -5,7 +5,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   name     = "test-opus-rg"
-  location = "East US"
+  location = "West Europe"
 }
 
 resource "azurerm_mysql_flexible_server" "mysql" {
