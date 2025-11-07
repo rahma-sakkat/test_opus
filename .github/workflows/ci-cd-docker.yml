@@ -90,29 +90,15 @@ jobs:
         run: |
           terraform init
           terraform apply -auto-approve
+      - name: Deploy to AKS
+        run: |
+          az aks get-credentials --resource-group test-opus-rg --name myAKSCluster
+          kubectl apply -f k8s/namespace.yaml
+          kubectl apply -f k8s/backend-deployment.yaml
+          kubectl apply -f k8s/backend-service.yaml
+          kubectl apply -f k8s/frontend-deployment.yaml
+          kubectl apply -f k8s/frontend-service.yaml
+          kubectl apply -f k8s/mysql-deployment.yaml
 
     
-      - name: Deploy Backend to ACI
-        run: |
-          az container create \
-            --resource-group test-opus-rg \
-            --name backend-container \
-            --image ${{ secrets.DOCKER_USERNAME }}/backend:latest \
-            --dns-name-label backend-app \
-            --ports 3000\
-            --os-type Linux\
-            --cpu 1 \
-            --memory 1.5
-
-      - name: Deploy Frontend to ACI
-        run: |
-          az container create \
-            --resource-group test-opus-rg \
-            --name frontend-container \
-            --image ${{ secrets.DOCKER_USERNAME }}/frontend:latest \
-            --dns-name-label frontend-app \
-            --ports 80\      
-            --os-type Linux\
-            --cpu 1 \
-            --memory 1.5
-
+      
