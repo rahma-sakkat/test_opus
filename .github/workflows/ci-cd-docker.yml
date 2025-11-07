@@ -100,6 +100,8 @@ jobs:
             --image ${{ secrets.DOCKER_USERNAME }}/backend:latest \
             --dns-name-label backend-app \
             --ports 3000
+            --os-type Linux
+
       - name: Deploy Frontend to ACI
         run: |
           az container create \
@@ -108,3 +110,5 @@ jobs:
             --image ${{ secrets.DOCKER_USERNAME }}/frontend:latest \
             --dns-name-label frontend-app \
             --ports 80      
+            --os-type Linux
+
