@@ -90,8 +90,11 @@ jobs:
         run: |
           terraform init
           terraform apply -auto-approve
-      #- name: Deploy to AKS
-      #  run: |
+      - name: Deploy to AKS
+        run: |
+         az aks get-credentials --resource-group test-opus-rg --name test-opus-aks
+         kubectl apply -f k8s/
+       
         #  az aks get-credentials --resource-group test-opus-rg --name myAKSCluster
         #  kubectl apply -f k8s/namespace.yaml
          # kubectl apply -f k8s/backend-deployment.yaml
