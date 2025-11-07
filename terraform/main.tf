@@ -8,7 +8,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   name     = "test-opus-rg"
-  location = "West Europe"
+  location = "France Central"
 }
 
 resource "azurerm_mysql_flexible_server" "mysql" {
