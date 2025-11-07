@@ -22,7 +22,7 @@ spec:
             - name: MYSQL_DATABASE
               value: testdb
             - name: MYSQL_USER
-              value: root
+              value: appuser
             - name: MYSQL_PASSWORD
               value: apppassword
           ports:
@@ -38,7 +38,7 @@ spec:
             claimName: mysql-pvc
         - name: mysql-init
           configMap:
-            name: mysql-init-sql
+            name: mysql-init-sql   
 ---
 # ConfigMap for SQL scripts
 apiVersion: v1
