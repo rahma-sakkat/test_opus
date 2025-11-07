@@ -99,7 +99,7 @@ jobs:
             --name backend-container \
             --image ${{ secrets.DOCKER_USERNAME }}/backend:latest \
             --dns-name-label backend-app \
-            --ports 3000
+            --ports 3000\
             --os-type Linux
 
       - name: Deploy Frontend to ACI
