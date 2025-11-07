@@ -20,9 +20,9 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               value: rootpassword
             - name: MYSQL_DATABASE
-              value: mydb
+              value: testdb
             - name: MYSQL_USER
-              value: appuser
+              value: root
             - name: MYSQL_PASSWORD
               value: apppassword
           ports:
