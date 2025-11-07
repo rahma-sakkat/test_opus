@@ -100,7 +100,9 @@ jobs:
             --image ${{ secrets.DOCKER_USERNAME }}/backend:latest \
             --dns-name-label backend-app \
             --ports 3000\
-            --os-type Linux
+            --os-type Linux\
+            --cpu 1 \
+            --memory 1.5
 
       - name: Deploy Frontend to ACI
         run: |
@@ -110,5 +112,7 @@ jobs:
             --image ${{ secrets.DOCKER_USERNAME }}/frontend:latest \
             --dns-name-label frontend-app \
             --ports 80\      
-            --os-type Linux
+            --os-type Linux\
+            --cpu 1 \
+            --memory 1.5
 
