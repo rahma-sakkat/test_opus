@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: backend:latest
+          image: rahmoucha/backend:latest
           ports:
             - containerPort: 5000
           env:

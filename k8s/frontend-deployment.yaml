@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: frontend:latest
+          image: rahmoucha/frontend:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 80
