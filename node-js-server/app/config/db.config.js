@@ -1,6 +1,6 @@
 module.exports = {
   HOST: "mysql-service",
-  USER: "root",
+  USER: "appuser",
   PASSWORD: "apppassword",
   DB: "testdb",
   dialect: "mysql",
