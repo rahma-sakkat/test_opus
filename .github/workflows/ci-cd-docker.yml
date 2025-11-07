@@ -89,7 +89,7 @@ jobs:
         working-directory: terraform
         run: |
           terraform init
-          terraform apply -auto-approve
+          terraform apply -var="docker_username=${{ secrets.DOCKER_USERNAME }}" -var="docker_password=${{ secrets.DOCKER_PASSWORD }}" -auto-approve
       - name: Deploy to AKS
         run: |
          az aks get-credentials --resource-group test-opus-rg --name test-opus-aks
