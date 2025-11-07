@@ -109,6 +109,6 @@ jobs:
             --name frontend-container \
             --image ${{ secrets.DOCKER_USERNAME }}/frontend:latest \
             --dns-name-label frontend-app \
-            --ports 80      
+            --ports 80\      
             --os-type Linux
 
